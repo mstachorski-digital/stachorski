@@ -1,13 +1,58 @@
 import Image from "next/image";
+import Link from "next/link";
+import { AppWindow, Bot, CalendarDays, Workflow } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export default function Home() {
   return (
     <>
-      <section className="w-full py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
+      <header className="fixed top-0 left-0 right-0 backdrop-blur-sm z-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-10">
+            {/* Linke Seite - Logo und Text */}
+            <div className="flex items-center space-x-4">
+              <Link
+                href="/"
+                className="flex items-center space-x-2"
+                tabIndex={0}
+                aria-label="Zur Startseite"
+              >
+                <Image
+                  src="michael_stachorski_logo.svg"
+                  alt="Logo"
+                  width={32}
+                  height={32}
+                  className="w-8 h-8"
+                />
+                <span className="text-lg font-bold text-white">
+                  michael stachorski
+                </span>
+              </Link>
+            </div>
+            <div className="flex items-center space-x-8">
+              <button
+                className={cn(
+                  "relative inline-flex items-center justify-center gap-2 px-3 py-2 bg-gradient-to-br from-[#1C9AA6] to-[#F9B233] overflow-hidden group",
+                  "before:absolute before:bottom-0 before:right-0 before:translate-x-1/2 before:translate-y-1/2 before:blur-lg before:rounded-[50%] before:transition-all before:duration-700 before:size-0 hover:before:size-[200%] before:bg-[#1C9AA6]",
+                  "after:absolute after:top-0 after:left-0 after:-translate-x-1/2 after:-translate-y-1/2 after:blur-xl after:transition-all after:duration-700 after:size-0 hover:after:size-[150%] after:bg-[#F9B233]",
+                  "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                )}
+                aria-label="Terrmin buchen"
+              >
+                <div className="flex gap-2 z-10 text-slate-900">
+                  <CalendarDays strokeWidth={1.5} size={20} />
+                  Termin buchen
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+      <section className="w-full py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Column */}
           <div className="space-y-6">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 dark:text-white">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight bg-clip-text bg-gradient-to-br from-[#1C9AA6] to-[#F9B233] text-transparent dark:text-white">
               Transformieren Sie Ihre digitale Präsenz
             </h1>
           </div>
@@ -15,20 +60,23 @@ export default function Home() {
           {/* Right Column */}
           <div className="space-y-8">
             {/* Badges */}
-            <div className="flex flex-wrap gap-3">
-              <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">
-                Innovativ
+            <div className="flex flex-col gap-3 items-end">
+              <span className="inline-flex gap-2 w-fit items-center px-3 py-1 rounded-full text-sm font-medium bg-slate-600 text-white">
+                <Workflow strokeWidth={1} />
+                Automatisierung
               </span>
-              <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">
-                Skalierbar
+              <span className="inline-flex gap-2 w-fit items-center px-3 py-1 rounded-full text-sm font-medium bg-slate-600 text-white">
+                <Bot strokeWidth={1} />
+                KI-Anwendungen
               </span>
-              <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200">
-                Zukunftssicher
+              <span className="inline-flex gap-2 w-fit items-center px-3 py-1 rounded-full text-sm font-medium bg-slate-600 text-white">
+                <AppWindow strokeWidth={1} />
+                Webentwicklung
               </span>
             </div>
 
             {/* Description Text */}
-            <p className="text-lg text-gray-600 dark:text-gray-300">
+            <p className="text-base text-white">
               Entdecken Sie modernste Technologielösungen, die Ihr Unternehmen
               auf das nächste Level heben. Unsere maßgeschneiderten Dienste
               bieten Ihnen die perfekte Kombination aus Innovation und
